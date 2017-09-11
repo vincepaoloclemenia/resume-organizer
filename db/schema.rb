@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911123750) do
+ActiveRecord::Schema.define(version: 20170911173828) do
+
+  create_table "educations", force: :cascade do |t|
+    t.string "elementary_school"
+    t.string "elementary_year"
+    t.string "secondary_school"
+    t.string "secondary_year"
+    t.string "tertiary_school"
+    t.string "tertiary_year"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_educations_on_person_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"

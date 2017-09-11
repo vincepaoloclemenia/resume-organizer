@@ -10,7 +10,7 @@
             <% @people.map do |person| %>
                 <tbody>
                     <tr>
-                        <td><%= "#{person.last_name}, #{person.first_name} #{person.middle_name}" %></td>
+                        <td><%= link_to "#{person.last_name}, #{person.first_name} #{person.middle_name}", person_path(person) %></td>
                         <td><%= link_to '', edit_person_path(person), class: "glyphicon glyphicon-edit" %> </td>
                         <td><%= link_to '', person_path(person), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
                     </t>

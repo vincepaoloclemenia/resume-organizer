@@ -55,7 +55,11 @@
         <%= f.text_field :mother_name, placeholder: "Mother's Name", class: "person-input" %>
     </div>
     <div class="field">
-        <%= f.submit 'Next', class: "btn register" %>
+        <% if controller.action_name == 'new' %>
+            <%= f.submit 'Next', class: "btn register" %>
+        <% elsif controller.action_name == 'edit' %>
+            <%= f.submit 'Save', class: "btn register" %>
+        <% end %>
     </div>
     
 <% end %>

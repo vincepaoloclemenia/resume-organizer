@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
         respond_to do |f|
             if @person.save
                 f.html{
-                    redirect_to root_path,
+                    redirect_to new_person_education_path(@person),
                     notice: "Resume Saved"
                 }
             else
@@ -20,6 +20,9 @@ class PeopleController < ApplicationController
                 }
             end
         end
+    end
+
+    def show
     end
 
     def edit

@@ -27,6 +27,8 @@ class Person < ApplicationRecord
     validates_presence_of :height, allow_nil: false
     validates_presence_of :weight, allow_nil: false
 
+    has_many :educations, dependent: :destroy
+
     default_scope { order(created_at: :desc) }
 
     Status = ["Single","Married"]

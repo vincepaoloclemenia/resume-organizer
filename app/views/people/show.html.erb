@@ -1,0 +1,48 @@
+<% content_for :title, "#{@person.last_name}, #{@person.first_name}" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <label class="person-label">Name: </label>
+                <p><%= "#{@person.last_name}, #{@person.first_name}" %></p>
+            <label class="person-label">Age: </label>
+                <p><%= @person.age %></p>
+            <label class="person-label">Birthday: </label>
+                <p><%= @person.birthday.strftime("%B %d, %Y") %></p>
+            <label class="person-label">Gender: </label>
+                <p><%= @person.gender %></p>
+            <label class="person-label">Status: </label>
+                <p><%= @person.status %></p>
+            <label class="person-label">Height: </label>
+                <p><%= @person.height %></p>
+            <label class="person-label">Weight: </label>
+                <p><%= @person.weight %></p>
+            <label class="person-label">Mother's Name: </label>
+                <p><%= @person.mother_name %></p>
+            <label class="person-label">Father's Name: </label>
+                <p><%= @person.father_name %></p>
+            <% if @person.educations.exists? %>
+                <% @person.educations.map do |education| %>
+                    <section>
+                        <label class="person-label">Elementary: </label>
+                        <p><%= education.elementary_school %></p>
+
+                        <label class="person-label">Attended: </label>
+                        <p><%= education.elementary_year %></p>
+
+                        <label class="person-label">Secondary: </label>
+                        <p><%= education.secondary_school %></p>
+
+                        <label class="person-label">Elementary: </label>
+                        <p><%= education.secondary_year %></p>
+
+                        <label class="person-label">Tertiary: </label>
+                        <p><%= education.tertiary_school %></p>
+
+                        <label class="person-label">Attended: </label>
+                        <p><%= education.tertiary_year %></p>
+                    </section>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
