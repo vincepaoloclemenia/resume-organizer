@@ -1,0 +1,8 @@
+<% content_for :title, "Add New Resume" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <%= render partial: '/people/form', locals: { newPerson: @newPerson } %>
+        </div>
+    </div>
+</div>

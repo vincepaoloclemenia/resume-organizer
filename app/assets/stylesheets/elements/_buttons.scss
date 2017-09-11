@@ -1,0 +1,15 @@
+.register{
+	color: darken($text-color, 5%);
+	background-color: $current_tab;
+	border: none;
+	width: 100%;
+	border-radius: 5px;
+	font-family: 'Trebuchet MS', serif;
+	letter-spacing: .50em;
+	&:hover{
+		text-decoration: none;
+		background-color: darken($main-color, 5%);
+		color: $text-color;
+		transition: 0.5s;
+	}
+}
