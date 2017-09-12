@@ -15,8 +15,8 @@ class PeopleController < ApplicationController
                 }
             else
                 f.html{
-                    redirect_to root_path,
-                    alert: "Error in Creating: #{@person.errors.full_messages}" 
+                    redirect_to new_person_path,
+                    alert: "ALERT! Error in Creating: #{@person.errors.full_messages}"
                 }
             end
         end
@@ -37,8 +37,8 @@ class PeopleController < ApplicationController
                 }
             else
                 f.html{
-                    redirect_to root_path,
-                    alert: "Error in Updating: #{@person.erors.full_messages}"
+                    redirect_to new_person_path,
+                    alert: "Error in Updating: #{@person.errors.full_messages}"
                 }
             end
         end
@@ -64,7 +64,12 @@ class PeopleController < ApplicationController
                 :height,
                 :weight,
                 :mother_name,
-                :father_name
+                :father_name,
+                :main_address,
+                :provincial_address,
+                :email,
+                :mobile_number,
+                :landline_number
             )
         end
 

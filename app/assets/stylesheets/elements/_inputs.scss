@@ -11,28 +11,29 @@
 
     .person-label{
         float: left;
-        color: darken($main-color, 0.8);
+        color: darken($main-color, 20.5);
         opacity: 0.8;
         font-weight: 900;
         font-family: 'Trebuchet MS', serif;
         font-size: 15px;
+        padding-right: 30px;
     }
 
     .person-input{
-        float:right;
-        margin-left: 30px;
+        float: right;
+        margin-right: 30px;
         max-width: 80%;
     }
     
-    .radio-person-gender{
+    .radio-person-label{
         display: inline-block;
         padding-left: 3em;
         white-space: nowrap;
         margin-left: 10%;
     }
-    .person-radio-button{
+    .person-radio-bullet{
         display: inline-block;
         position: absolute;
         margin-left: 10%;
-    }    
+    }  
 }

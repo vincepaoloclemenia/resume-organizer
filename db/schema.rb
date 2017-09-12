@@ -10,38 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911173828) do
+ActiveRecord::Schema.define(version: 20170912115914) do
+
+  create_table "character_references", force: :cascade do |t|
+    t.integer "person_id"
+    t.string "name"
+    t.string "contact"
+    t.string "profession"
+    t.string "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_character_references_on_person_id"
+  end
 
   create_table "educations", force: :cascade do |t|
-    t.string "elementary_school"
-    t.string "elementary_year"
-    t.string "secondary_school"
-    t.string "secondary_year"
-    t.string "tertiary_school"
-    t.string "tertiary_year"
+    t.string "education_level"
+    t.string "year_attended"
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "school_name"
     t.index ["person_id"], name: "index_educations_on_person_id"
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.integer "person_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_objectives_on_person_id"
   end
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "middle_name"
-    t.integer "age"
+    t.string "age"
     t.string "gender"
     t.date "birthday"
     t.string "mother_name"
     t.string "father_name"
     t.string "status"
-    t.integer "height"
-    t.integer "weight"
+    t.string "height"
+    t.string "weight"
     t.string "email"
-    t.boolean "married?"
-    t.boolean "has_children?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "main_address"
+    t.string "provincial_address"
+    t.string "mobile_number"
+    t.string "landline_number"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "competency"
+    t.string "skill_name"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_skills_on_person_id"
   end
 
 end

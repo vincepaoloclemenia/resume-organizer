@@ -1,0 +1,31 @@
+<% content_for :title, "Objectives | #{@person.last_name}, #{@person.first_name}" %>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+        <% if @person.objectives.exists? %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Objectives</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <% @person.objectives.map do |obj| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= obj.description %></td>
+                                        <td><%= link_to '', edit_person_education_path(@person,obj), class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_education_path(@person,obj), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>

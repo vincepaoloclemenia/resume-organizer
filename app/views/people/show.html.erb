@@ -8,8 +8,16 @@
                 <p><%= @person.age %></p>
             <label class="person-label">Birthday: </label>
                 <p><%= @person.birthday.strftime("%B %d, %Y") %></p>
+            <label class="person-label">Email: </label>
+                <p><%= @person.email %></p>
+            <label class="person-label">Contacts: </label>
+                <p>Mobile: <%= @person.mobile_number %></p>
+                <p>Landline: <%= @person.landline_number %></p>
             <label class="person-label">Gender: </label>
                 <p><%= @person.gender %></p>
+            <label class="person-label">Address: </label>
+                <p>Main: <%= @person.main_address %></p>
+                <p>Province: <%= @person.provincial_address %></p>
             <label class="person-label">Status: </label>
                 <p><%= @person.status %></p>
             <label class="person-label">Height: </label>

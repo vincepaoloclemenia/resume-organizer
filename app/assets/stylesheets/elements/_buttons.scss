@@ -13,3 +13,19 @@
 		transition: 0.5s;
 	}
 }
+
+.customized{
+	color: darken($text-color, 5%);
+	background-color: $main-color;
+	border: 1px solid darken($text-color, 5%);
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken($current_tab, 5%);
+		color: $text-color;
+		transition: 0.5s;
+	}
+
+}

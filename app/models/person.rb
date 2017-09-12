@@ -17,20 +17,36 @@ class Person < ApplicationRecord
     #   t.datetime "created_at", null: false
     #   t.datetime "updated_at", null: false
 
-    validates_presence_of :first_name, allow_nil: false
-    validates_presence_of :last_name, allow_nil: false
-    validates_presence_of :middle_name, allow_nil: false
-    validates_presence_of :birthday, allow_nil: false
-    validates_presence_of :age, allow_nil: false
-    validates_presence_of :gender, allow_nil: false
-    validates_presence_of :status, allow_nil: false
-    validates_presence_of :height, allow_nil: false
-    validates_presence_of :weight, allow_nil: false
-
+    validates_presence_of :first_name
+    validates_presence_of :last_name
+    validates_presence_of :middle_name
+    validates_presence_of :birthday
+    validates_presence_of :age
+    validates_presence_of :gender
+    validates_presence_of :status
+    validates_presence_of :height
+    validates_presence_of :weight
+    validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
+    validates_format_of :weight,:height,:age, with: /\A[0-9]/
+    validates_format_of :mobile_number,:landline_number, with: /\A[\d-]/
+    
     has_many :educations, dependent: :destroy
+    has_many :objectives, dependent: :destroy
+    has_many :character_references, dependent: :destroy
+    has_many :skills, dependent: :destroy 
+
 
     default_scope { order(created_at: :desc) }
 
     Status = ["Single","Married"]
     Gender = ["Male", "Female"]
+    
+    def completed_already?
+        if educations.exists? && objectives.exists? && character_references.exists? && skills.exists?
+            return "Complete Information"
+        else
+            return "Incomplete Information"
+        end
+    end
+
 end

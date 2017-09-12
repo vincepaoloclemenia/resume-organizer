@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :people do
     resources :educations
+    resources :skills
+    resources :objectives
+    resources :character_references
   end
   
 end

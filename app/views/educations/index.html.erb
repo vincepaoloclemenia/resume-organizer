@@ -1,0 +1,80 @@
+<% content_for :title, "Education Attainment | #{@person.last_name}, #{@person.first_name}" %>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+        <% if @person.educations.exists? %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Elementary</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>School Name</th>
+                                    <th>Year Attended</th>
+                                </tr>
+                            </thead>
+                            <% @person.educations.where(education_level: "Elementary").map do |educ| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= educ.school_name %></td>
+                                        <td><%= educ.year_attended %></td>
+                                        <td><%= link_to '', [:edit, @person, educ], class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_education_path(@person, educ), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Secondary</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>School Name</th>
+                                    <th>Year Attended</th>
+                                </tr>
+                            </thead>
+                            <% @person.educations.where(education_level: "Secondary").map do |educ| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= educ.school_name %></td>
+                                        <td><%= educ.year_attended %></td>
+                                        <td><%= link_to '', edit_person_education_path(@person,educ), class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_education_path(@person,educ), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Tertiary</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>School Name</th>
+                                    <th>Year Attended</th>
+                                </tr>
+                            </thead>
+                            <% @person.educations.where(education_level: "Tertiary").map do |educ| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= educ.school_name %></td>
+                                        <td><%= educ.year_attended %></td>
+                                        <td><%= link_to '', edit_person_education_path(@person,educ), class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_education_path(@person,educ), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+        <% end %>
+        <center><%= link_to 'Add Education', new_person_education_path, class: "btn customized" %></center>
+        </div>
+    </div>
+</div>

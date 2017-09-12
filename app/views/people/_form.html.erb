@@ -1,4 +1,5 @@
 <%= form_for newPerson do |f| %>
+    <%= render 'layouts/errors' %>
     <div class="field">
         <%= f.label :last_name, class: "person-label"%>
         <%= f.text_field :last_name, placeholder: "Last Name", class: "person-input"  %>
@@ -16,17 +17,37 @@
         <%= f.text_field :age, placeholder: "Age", class: "person-input"  %>
     </div>
     <div class="field">
+        <%= f.label :email, class: "person-label"%>
+        <%= f.text_field :email, placeholder: "Email Address", class: "person-input" %>
+    </div>
+    <div class="field">
+        <%= f.label :main_address, class: "person-label"%>
+        <%= f.text_field :main_address, placeholder: "Main Address", class: "person-input" %>
+    </div>
+    <div class="field">
+        <label class="person-label">Province</label>
+        <%= f.text_field :provincial_address, placeholder: "Provincial Address", class: "person-input" %>
+    </div>
+    <div class="field">
+        <%= f.label :mobile_number, class: "person-label"%>
+        <%= f.text_field :mobile_number, placeholder: "Cell Number", class: "person-input" %>
+    </div>
+    <div class="field">
+        <label class="person-label">Landline</label>
+        <%= f.text_field :landline_number, placeholder: "Landline", class: "person-input" %>
+    </div>
+    <div class="field">
         <label class="person-label">Civil Status</label>
-        <% Person::Status.map do |status| %>
-            <%= f.radio_button :status, status, class: "person-radio-bullet" %>
-            <%= f.label :status, status, value: status.capitalize!, class: "radio-person-gender"%>
+        <% Person::Status.map do |status| %>            
+            <%= f.radio_button :status, status, class: "person-radio-bullet" %> 
+            <%= f.label :status, status, value: status.capitalize!, class: "radio-person-label"%>           
         <% end %>
     </div>
     <div class="field">
         <label class="person-label">Gender</label>
         <% Person::Gender.map do |gender| %>
             <%= f.radio_button :gender, gender, class: "person-radio-bullet" %>
-            <%= f.label :gender, gender, value: gender.capitalize!, class: "radio-person-gender"%>
+            <%= f.label :gender, gender, value: gender.capitalize!, class: "radio-person-label"%>
         <% end %>
     </div>
     <div class="field">
