@@ -1,0 +1,8 @@
+<% content_for :title, "New Character Reference for #{@person.last_name}" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <%= render partial: '/character_references/form', locals: { person: @person } %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<% content_for :title, "New Skill Set" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <%= render partial: '/skills/edit_form', locals: { person: @person, skill: @skill } %>
+        </div>
+    </div>
+</div>

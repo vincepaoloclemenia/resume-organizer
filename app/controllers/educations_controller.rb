@@ -15,7 +15,7 @@ class EducationsController < ApplicationController
         respond_to do |f|
             if @education.save
                 f.html {
-                    redirect_to person_educations_path(@person),
+                    redirect_to person_objectives_path(@person),
                     notice: "Successfully Saved"
                 }
             else
@@ -74,7 +74,11 @@ class EducationsController < ApplicationController
         end
 
         def find_education
-            @education = Education.find(params[:id])
+            @education = Education.find_by_id(params[:id])
+            if @education.nil?
+                redirect_to root_path 
+                flash[:alert] = "Nothing found to continue"
+            end
         end
 
 end

@@ -1,0 +1,8 @@
+<% content_for :title, "Edit Objectives" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <%= render partial: '/objectives/edit_form', locals: { person: @person, objective: @objective } %>
+        </div>
+    </div>
+</div>

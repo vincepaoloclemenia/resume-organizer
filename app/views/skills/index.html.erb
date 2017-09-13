@@ -1,0 +1,34 @@
+<% content_for :title, "Skill Set | #{@person.last_name}, #{@person.first_name}" %>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+        <% if @person.skills.exists? %>
+            <% @competencies.map do|competency| %>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><center><h4><%= competency %></h4></center></div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Specific Field</th>
+                                    </tr>
+                                </thead>
+                                <% @person.skills.where(competency: competency).map do |skill| %>
+                                    <tbody>
+                                        <tr>
+                                            <td><%= skill.skill_name %></td>
+                                            <td><%= link_to '', [:edit, @person, skill], class: "glyphicon glyphicon-edit" %> </td>
+                                            <td><%= link_to '', person_skill_path(@person,skill), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                        </tr>
+                                    </tbody>
+                                <% end %>
+                            </table>
+                        </div>            
+                </div>
+            <% end %>
+        <% end %>
+        <center><%= link_to 'Add Character References', new_person_skill_path, class: "btn customized" %></center>
+        </div>
+    </div>
+</div>

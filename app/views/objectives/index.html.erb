@@ -17,8 +17,8 @@
                                 <tbody>
                                     <tr>
                                         <td><%= obj.description %></td>
-                                        <td><%= link_to '', edit_person_education_path(@person,obj), class: "glyphicon glyphicon-edit" %> </td>
-                                        <td><%= link_to '', person_education_path(@person,obj), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                        <td><%= link_to '', [:edit, @person, obj], class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_objective_path(@person,obj), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
                                     </tr>
                                 </tbody>
                             <% end %>
@@ -26,6 +26,7 @@
                     </div>            
             </div>
         <% end %>
+        <center><%= link_to 'Add Character References', new_person_objective_path, class: "btn customized" %></center>
         </div>
     </div>
 </div>

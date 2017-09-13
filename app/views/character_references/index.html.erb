@@ -1,0 +1,38 @@
+<% content_for :title, "Character References | #{@person.last_name}, #{@person.first_name}" %>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+        <% if @person.references.exists? %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Character References</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Company</th>
+                                    <th>Profession</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+                            <% @person.references.map do |ref| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= ref.name %></td>
+                                        <td><%= ref.company %></td>
+                                        <td><%= ref.profession %></td>
+                                        <td><%= ref.contact %></td>
+                                        <td><%= link_to '', [:edit, @person, ref], class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_character_reference_path(@person,ref), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+        <% end %>
+        <center><%= link_to 'Add Character References', new_person_character_reference_path, class: "btn customized" %></center>
+        </div>
+    </div>
+</div>
