@@ -1,3 +1,7 @@
 .panel-default{
     border: none;
+    .panel-heading{
+        background-color: $secondary-color;
+        color: $main-color;
+    }
 }

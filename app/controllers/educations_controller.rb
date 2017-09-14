@@ -15,7 +15,7 @@ class EducationsController < ApplicationController
         respond_to do |f|
             if @education.save
                 f.html {
-                    redirect_to person_objectives_path(@person),
+                    redirect_to person_educations_path(@person),
                     notice: "Successfully Saved"
                 }
             else
@@ -58,7 +58,7 @@ class EducationsController < ApplicationController
     private
 
         def education_params
-            params.fetch(:education, {}).permit(
+            params.require(:education).permit(
                 :education_level,
                 :year_attended,
                 :school_name

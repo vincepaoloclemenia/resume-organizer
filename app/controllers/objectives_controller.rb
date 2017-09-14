@@ -44,7 +44,7 @@ class ObjectivesController < ApplicationController
     private
 
         def objective_params
-            params.fetch(:objective, {}).permit(:description)
+            params.require(:objective).permit(:description)
         end
 
         def find_objective

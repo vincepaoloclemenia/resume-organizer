@@ -1,26 +1,27 @@
-<%= form_for ([person, person.educations.build]) do |f| %>
+<div class="panel panel-default">
+    <div class="panel-heading"><%=link_to 'Back', person_educations_path(person), class: "back"%><center><h5>Add Educational Background</h5></center></div>
 
-    <div class="field">
-        <%= f.label :education_level, class: "person-label"%>
-        <%= f.select :education_level, options_for_select(Education::Levels), include_blank: "Education Level", class: "person-input" %>
-    </div>
+        <%= form_for ([person, person.educations.build]) do |f| %>
 
-    <div class="field">
-        <%= f.label :school_name, class: "person-label"%>
-        <%= f.text_field :school_name, placeholder: "School Name", class: "person-input" %>
-    </div>
+            <div class="field">
+                <%= f.label :education_level, class: "person-label"%>
+                <%= f.select :education_level, options_for_select(Education::Levels), include_blank: "Education Level" %>
+            </div>
 
-    <div class="field">
-        <%= f.label :year_attended, class: "person-label"%>
-        <%= f.text_field :year_attended, placeholder: "Year Attended", class: "person-input" %>
-    </div>
-    
-    <div class="field">
-        <% if controller.action_name == 'new' %>
-            <%= f.submit 'Next', class: "btn register" %>
-        <% elsif controller.action_name == 'edit' %>
-            <%= f.submit 'Save', class: "btn register" %>
+            <div class="field">
+                <%= f.label :school_name, class: "person-label"%>
+                <%= f.text_field :school_name, placeholder: "School Name", class: "person-input" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :year_attended, class: "person-label"%>
+                <%= f.text_field :year_attended, placeholder: "Year Attended", class: "person-input" %>
+            </div>
+            
+            <div class="field">
+                <%= f.submit 'Save', class: "btn register" %>
+            </div>
+
         <% end %>
-    </div>
 
-<% end %>
+</div>

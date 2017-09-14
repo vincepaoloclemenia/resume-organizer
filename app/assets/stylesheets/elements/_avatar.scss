@@ -1,0 +1,8 @@
+.avatar-image{
+    border: solid 2px $text-color;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover{
+        border: 2px solid $current_tab;
+    }
+}

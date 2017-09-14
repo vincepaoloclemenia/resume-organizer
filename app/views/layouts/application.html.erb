@@ -12,21 +12,9 @@
   <% elsif alert %>
     <%= react_component('NoticeWrapper', { message: alert, type: 'danger' }) %>
   <% end %> 
-  <nav class = "navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to "Resume Organizer", root_path, class: "navbar-brand" %>  
-      </div>
+  <%= render 'layouts/navlinks' %>
 
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Add New Resume', new_person_path %></li>         
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <body>
+  <body class="<%= controller.controller_name %> <%= controller.action_name %>">
     <div class="container">
       <%= yield %>
     </div>

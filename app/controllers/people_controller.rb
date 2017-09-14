@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
         respond_to do |f|
             if @person.save
                 f.html{
-                    redirect_to new_person_education_path(@person),
+                    redirect_to person_educations_path(@person),
                     notice: "Resume Saved"
                 }
             else
@@ -69,7 +69,8 @@ class PeopleController < ApplicationController
                 :provincial_address,
                 :email,
                 :mobile_number,
-                :landline_number
+                :landline_number,
+                :avatar
             )
         end
 

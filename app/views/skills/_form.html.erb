@@ -1,21 +1,23 @@
-<%= form_for ([person, person.skills.build]) do |f| %>
-    
-        <div class="field">
-            <%= f.label :competency, class: "person-label"%>
-            <%= f.text_field :competency, placeholder: "Category", class: "person-input"  %>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading"><%=link_to 'Back', person_skills_path(person), class: "back"%><center><h5>New Skill Set</h5></center></div>
 
-        <div class="field">
-            <%= f.label "Specific Field", class: "person-label"%>
-            <%= f.text_field :skill_name, placeholder: "Skill Set", class: "person-input"  %>
-        </div>
-        
-        <div class="field">
-            <% if controller.action_name == 'new' %>
-                <%= f.submit 'Next', class: "btn register" %>
-            <% elsif controller.action_name == 'edit' %>
-                <%= f.submit 'Save', class: "btn register" %>
-            <% end %>
-        </div>
-        
-<% end %>
+        <%= form_for ([person, person.skills.build]) do |f| %>
+            
+                <div class="field">
+                    <%= f.label :competency, class: "person-label"%>
+                    <%= f.text_field :competency, placeholder: "Category", class: "person-input"  %>
+                </div>
+
+                <div class="field">
+                    <%= f.label "Specific Field", class: "person-label"%>
+                    <%= f.text_field :skill_name, placeholder: "Skill Set", class: "person-input"  %>
+                </div>
+                
+                <div class="field">
+                    <%= f.submit 'Save', class: "btn register" %>
+                </div>
+                
+        <% end %>
+
+    </div>
+</div>

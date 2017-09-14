@@ -10,32 +10,59 @@
     }
 
     .person-label{
-        float: left;
+        display: block;
         color: darken($main-color, 20.5);
         opacity: 0.8;
         font-weight: 900;
         font-family: 'Trebuchet MS', serif;
         font-size: 15px;
-        padding-right: 30px;
+        margin-right: 10em;
+        position: absolute;
     }
 
     .person-input{
-        float: right;
-        margin-right: 30px;
-        max-width: 80%;
+        display: block;
+        margin-left: 15em;
+        max-width: 60%;
+        position: absolute;
     }
     
     .radio-person-label{
         display: inline-block;
-        padding-left: 3em;
         white-space: nowrap;
-        margin-left: 10%;
+        margin-left: 17em;
         
     }
     .person-radio-bullet{
         display: inline-block;
         position: absolute;
-        margin-left: 10%;
-        
-    }  
+        margin-left: 15em;        
+    }
+
+    #education_education_level{
+        display: inline-block;
+        margin-left: 15em;
+    }
+
+    .person-input-text-area{
+        margin-left: 10em;
+    }
+    
+    .person-select-date{
+        margin-left: 15em;
+        .year{
+            display: inline-block;
+            position: absolute;
+            margin-left: 13em;
+        }
+        .day{
+            margin-left: 8em;
+            display: inline-block;
+            position: absolute;
+        }
+        .month{
+            display: inline-block;
+            position: absolute;
+        }
+    }
 }

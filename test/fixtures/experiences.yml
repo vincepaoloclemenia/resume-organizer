@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  task: MyString
+  year_employed: MyString
+  position: MyString
+
+two:
+  company: MyString
+  task: MyString
+  year_employed: MyString
+  position: MyString

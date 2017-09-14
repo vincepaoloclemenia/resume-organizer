@@ -25,8 +25,8 @@ class Person < ApplicationRecord
     has_many :educations, dependent: :destroy
     has_many :objectives, dependent: :destroy
     has_many :references, class_name: "CharacterReference", dependent: :destroy
-    has_many :skills, dependent: :destroy 
-
+    has_many :skills, dependent: :destroy
+    has_many :experiences, dependent: :destroy  
 
     default_scope { order(created_at: :desc) }
 
@@ -41,4 +41,34 @@ class Person < ApplicationRecord
         end
     end
 
+    def has_three_references?
+        total = references.size
+        need = 3 - total
+        if  total < 3
+            return "Needs #{need} more #{"reference".pluralize(need)}"
+        end      
+    end
+
+    def has_three_objectives?
+        total = objectives.size
+        need = 3 - total
+        if total < 3
+            return "Needs #{need} more #{"objective".pluralize(need)}"
+        end
+    end
+
+    def has_skills?
+        unless skills.any? 
+            return "Incomplete: No Skill Set yet"
+        end
+    end
+
+    def has_educations?
+        unless educations.any? 
+            return "No educational record yet"
+        end
+    end
+
+
+    mount_uploader :avatar, AvatarUploader
 end

@@ -1,16 +1,16 @@
-<%= form_for ([person, objective]) do |f| %>
-    
-        <div class="field">
-            <%= f.label :description, class: "person-label"%>
-            <%= f.text_area :description, size: "80x5", placeholder: "", class: "person-input-text-area"  %>
-        </div>
-        
-        <div class="field">
-            <% if controller.action_name == 'new' %>
-                <%= f.submit 'Next', class: "btn register" %>
-            <% elsif controller.action_name == 'edit' %>
-                <%= f.submit 'Save', class: "btn register" %>
-            <% end %>
-        </div>
-        
-<% end %>
+<div class="panel panel-default">
+    <div class="panel-heading"><%=link_to 'Back', person_objectives_path(person), class: "back"%><center><h5>Edit Objective</h5></center></div>
+
+        <%= form_for ([person, objective]) do |f| %>
+            
+                <div class="field">
+                    <%= f.label :description, class: "person-label"%>
+                    <%= f.text_area :description, size: "80x5", placeholder: "", class: "person-input-text-area"  %>
+                </div>
+                
+                <div class="field">
+                    <%= f.submit 'Save', class: "btn register" %>
+                </div>
+                
+        <% end %>
+</div>

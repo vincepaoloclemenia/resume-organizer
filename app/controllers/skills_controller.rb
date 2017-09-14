@@ -43,7 +43,7 @@ class SkillsController < ApplicationController
     private
 
         def skill_params
-            params.fetch(:skill, {}).permit(
+            params.require(:skill).permit(
                 :skill_name,
                 :competency
             )

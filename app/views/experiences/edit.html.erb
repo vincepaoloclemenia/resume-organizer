@@ -1,0 +1,8 @@
+<% content_for :title, "Edit Experience" %>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+            <%= render partial: '/experiences/edit_form', locals: { person: @person, experience: @experience } %>
+        </div>
+    </div>
+</div>

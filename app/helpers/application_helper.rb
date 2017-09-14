@@ -9,4 +9,9 @@ module ApplicationHelper
         end
     end
     
+    def resume_exist? person
+        person == params[:id]
+        person.present?
+    end
+
 end

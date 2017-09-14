@@ -18,14 +18,6 @@
 	background-color: $main-color;
 	padding-bottom: 5px;
 	padding-top: 5px;
-	
-	.nav-avatar{
-		padding-top: 8px;
-		vertical-align: middle;
-	}
-	.play-chess{
-		padding-right: 20px;
-	}
 
 	.navbar-toggle {
 		background-color: $main-color;
@@ -37,6 +29,12 @@
 			color: darken($current_tab, 5%);
 			transition: 0.5s;
 		}
+	}
+
+	.warning{
+		color: tomato;
+		font-size: 10px;
+		padding-left: 2em;
 	}
 
 	.navbar-header {

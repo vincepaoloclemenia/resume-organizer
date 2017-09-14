@@ -1,56 +1,137 @@
 <% content_for :title, "#{@person.last_name}, #{@person.first_name}" %>
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="resume-form">
-            <label class="person-label">Name: </label>
-                <p><%= "#{@person.last_name}, #{@person.first_name}" %></p>
-            <label class="person-label">Age: </label>
-                <p><%= @person.age %></p>
-            <label class="person-label">Birthday: </label>
-                <p><%= @person.birthday.strftime("%B %d, %Y") %></p>
-            <label class="person-label">Email: </label>
-                <p><%= @person.email %></p>
-            <label class="person-label">Contacts: </label>
-                <p>Mobile: <%= @person.mobile_number %></p>
-                <p>Landline: <%= @person.landline_number %></p>
-            <label class="person-label">Gender: </label>
-                <p><%= @person.gender %></p>
-            <label class="person-label">Address: </label>
-                <p>Main: <%= @person.main_address %></p>
-                <p>Province: <%= @person.provincial_address %></p>
-            <label class="person-label">Status: </label>
-                <p><%= @person.status %></p>
-            <label class="person-label">Height: </label>
-                <p><%= @person.height %></p>
-            <label class="person-label">Weight: </label>
-                <p><%= @person.weight %></p>
-            <label class="person-label">Mother's Name: </label>
-                <p><%= @person.mother_name %></p>
-            <label class="person-label">Father's Name: </label>
-                <p><%= @person.father_name %></p>
-            <% if @person.educations.exists? %>
-                <% @person.educations.map do |education| %>
-                    <section>
-                        <label class="person-label">Elementary: </label>
-                        <p><%= education.elementary_school %></p>
+<div id="page-wrap">
 
-                        <label class="person-label">Attended: </label>
-                        <p><%= education.elementary_year %></p>
+    <%= avatar_for(@person, size: 150) %>
 
-                        <label class="person-label">Secondary: </label>
-                        <p><%= education.secondary_school %></p>
-
-                        <label class="person-label">Elementary: </label>
-                        <p><%= education.secondary_year %></p>
-
-                        <label class="person-label">Tertiary: </label>
-                        <p><%= education.tertiary_school %></p>
-
-                        <label class="person-label">Attended: </label>
-                        <p><%= education.tertiary_year %></p>
-                    </section>
-                <% end %>
-            <% end %>
-        </div>
+    <div id="contact-info" class="vcard">
+    
+        <h1 class="fn"><%= @person.last_name%>, <%=@person.first_name%></h1>
+    
+        <p>
+            Cell: <span class="tel"><%= @person.mobile_number %></span><br />
+            Email: <a class="email" href=""><%= @person.email %></a>
+        </p>
     </div>
+            
+    <div id="objective">
+        <%  if @person.objectives.any? %>
+            <% @person.objectives.map do |obj| %>
+                <p>
+                    <%= obj.description %>
+                </p>
+            <% end %>
+        <% else %>
+            <p><em>No objectives yet.</em> Click <strong><%= link_to 'here', new_person_objective_path(@person)%></strong> to add</p>
+        <% end %>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <dl>
+
+        <dt>Personal Information</dt>
+            <dd>
+                <div class="resume">
+                    <p><label class="person-label">Address:</label><span class="resume-detail"><%= @person.main_address %></span></p>
+                    <p><label class="person-label">Birthday:</label><span class="resume-detail"><%= @person.birthday.strftime("%B %d, %Y") %></span></p>
+                    <p><label class="person-label">Age:</label><span class="resume-detail"><%= @person.age %></span></p>
+                    <p><label class="person-label">Gender:</label><span class="resume-detail"><%= @person.gender %></span></p>
+                    <p><label class="person-label">Status:</label><span class="resume-detail"><%= @person.status %></span></p>
+                    <p><label class="person-label">Height:</label><span class="resume-detail"><%= @person.height %></span></p>
+                    <p><label class="person-label">Weight:</label><span class="resume-detail"><%= @person.weight %></span></p>
+                    <p><label class="person-label">Mother's Name:</label><span class="resume-detail"><%= @person.mother_name %></span></p>
+                    <p><label class="person-label">Father's Name:</label><span class="resume-detail"><%= @person.father_name %></span></p>               
+                </div>
+            </dd>
+        
+        <dd class="clear"></dd>
+        
+        <dt>Education</dt>
+        <% if @person.educations.any? %>
+            <dd>
+                <h2><strong>Elementary</strong></h2>
+                <% @person.educations.select { |elem| elem.education_level == "Elementary"}.map do |educ| %>                                            
+                    <p>School Name: <%= educ.school_name %><br />
+                    Year Attended: <%= educ.year_attended %></p>                    
+                <% end %>
+            </dd>
+            <dd>
+                <h2><strong>Secondary</strong></h2>
+                <% @person.educations.select { |elem| elem.education_level == "Secondary"}.map do |educ| %>                                            
+                    <p>School Name: <%= educ.school_name %><br />
+                    Year Attended: <%= educ.year_attended %></p>                    
+                <% end %>
+            </dd>
+            <dd>
+                <h2><strong>Tertiary</strong></h2>
+                <% @person.educations.select { |elem| elem.education_level == "Tertiary"}.map do |educ| %>                                            
+                    <p>School Name: <%= educ.school_name %><br />
+                    Year Attended: <%= educ.year_attended %></p>                    
+                <% end %>
+            </dd>
+        <% else %>
+            <dd>
+                <p><em>No Education Yet. Click <%= link_to 'here', new_person_education_path(@person)%></em> to add.</p>
+            </dd>
+        <% end %>
+        
+        <dd class="clear"></dd>
+        
+        <dt>Skills</dt>
+        <% if @person.skills.any? %>
+            <% @person.skills.pluck(:competency).uniq.map do|competency| %>
+            <dd>
+                <label><strong><%= competency %></strong></label>
+                <% @person.skills.select {|skill| skill.competency == competency}.map do |skill| %>
+                    <ul class="skills">
+                        <li><%= skill.skill_name %></li>
+                    </ul>
+                <% end %>
+            </dd>
+            <% end %>
+        <% else %>
+            <dd>
+                <p><em> No skills yet. Click <%= link_to 'here', new_person_skill_path(@person) %> to add</em></p>
+            </dd>
+        <% end %>
+        
+        <dd class="clear"></dd>
+        
+        <dt>Experience</dt>
+        <% if @person.experiences.any? %>
+            <% @person.experiences.map do |exp| %>
+                <dd>
+                    <h2><%= exp.company %> <span><%= exp.position %> - <%= exp.year_employed %></span></h2>
+                    <p>Job Description: <%= exp.task %></p>
+                </dd>
+            <% end %>
+        <% else %>
+            <dd>
+                <p><em>No work experience. Click <%= link_to 'here', new_person_experience_path(@person) %> to add</em></em></p>
+            </dd>
+        <% end %>
+            
+        <dd class="clear"></dd>
+        
+        <dt>References</dt>
+        <% if @person.references.any? %>
+            <dd>
+                <% @person.references.map do |ref| %>
+                        <h2><strong><%= ref.name %></strong></h2>
+                        <p>Company: <%= ref.company %></p>                    
+                        <p>Profession: <%= ref.profession %></p>
+                        <p>Contract Detail: <%= ref.contact %></p>
+                            
+                <% end %>
+            </dd>
+            
+        <% else %>
+            <dd>Available on request</dd>
+        <% end %>
+        
+        <dd class="clear"></dd>
+    </dl>
+    
+    <div class="clear"></div>
+
 </div>

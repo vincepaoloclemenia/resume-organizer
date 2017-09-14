@@ -1,0 +1,38 @@
+<% content_for :title, "Experiences | #{@person.last_name}, #{@person.first_name}" %>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="resume-form">
+        <% if @person.experiences.exists? %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h4>Work Experiences</h4></center></div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Position</th>
+                                    <th>Year of Employment</th>
+                                    <th>Task</th>
+                                </tr>
+                            </thead>
+                            <% @person.experiences.map do |exp| %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= exp.company %></td>
+                                        <td><%= exp.position %></td>
+                                        <td><%= exp.year_employed %></td>
+                                        <td><%= exp.task %></td>
+                                        <td><%= link_to '', [:edit, @person, exp], class: "glyphicon glyphicon-edit" %> </td>
+                                        <td><%= link_to '', person_experience_path(@person,exp), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
+                                    </tr>
+                                </tbody>
+                            <% end %>
+                        </table>
+                    </div>            
+            </div>
+        <% end %>
+        <center><%= link_to 'Add New Experience', new_person_experience_path, class: "btn customized" %></center>
+        </div>
+    </div>
+</div>

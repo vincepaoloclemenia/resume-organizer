@@ -6,7 +6,7 @@
         <% if @person.skills.exists? %>
             <% @competencies.map do|competency| %>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><center><h4><%= competency %></h4></center></div>
+                    <div class="panel-heading"><center><h5><%= competency %></h5></center></div>
                         <div class="panel-body">
                             <table class="table table-hover">
                                 <thead>
@@ -27,8 +27,10 @@
                         </div>            
                 </div>
             <% end %>
+        <% else %>
+            <center><h4><em>No skills set yet</em></h4></center>
         <% end %>
-        <center><%= link_to 'Add Character References', new_person_skill_path, class: "btn customized" %></center>
+        <center><%= link_to 'Add Skill Set', new_person_skill_path, class: "btn customized" %></center>
         </div>
     </div>
 </div>

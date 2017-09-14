@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :skills
     resources :objectives
     resources :character_references
+    resources :experiences
   end
   
 end

@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><%=link_to 'Back', person_experiences_path(person), class: "back"%><center><h5>Add Work Experience</h5></center></div>        
+        
+        <%= form_for ([person, person.experiences.build]) do |f| %>
+            
+                <div class="field">
+                    <%= f.label :company, class: "person-label"%>
+                    <%= f.text_field :company, placeholder: "Company Name", class: "person-input"  %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :position, class: "person-label"%>
+                    <%= f.text_field :position, placeholder: "Position", class: "person-input"  %>
+                </div>
+
+                <div class="field">
+                    <%= f.label "Year of Employment", class: "person-label"%>
+                    <%= f.text_field :year_employed, placeholder: "", class: "person-input"  %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :task, class: "person-label"%>
+                    <%= f.text_field :task, placeholder: "Description", class: "person-input"  %>
+                </div>
+                
+                <div class="field">
+                    <%= f.submit 'Save', class: "btn register" %>
+                </div>
+                
+        <% end %>
+</div>
