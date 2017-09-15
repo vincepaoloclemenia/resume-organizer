@@ -14,7 +14,7 @@
 	}
 }
 
-.customized{
+.add_fields, .customized{
 	color: darken($text-color, 5%);
 	background-color: $main-color;
 	border: 1px solid darken($text-color, 15%);
@@ -28,6 +28,24 @@
 		transition: 0.5s;
 	}
 
+}
+
+.remove_fields{
+	display: block;
+	float: right;
+	
+	color: darken(tomato, 5%);
+	background-color: transparent;
+	border: none;
+	padding: 3px 10px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken($secondary-color, 5%);
+		color: $text-color;
+		transition: 0.5s;
+	}
 }
 
 .back{

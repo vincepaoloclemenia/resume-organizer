@@ -1,0 +1,26 @@
+<div class="panel-body">   
+    <fieldset>
+        <%= f.hidden_field :_destroy %>
+        <%= link_to "remove", '#', class: "remove_fields" %>
+        
+        <div class="field">       
+            <%= f.label :company, class: "person-label"%>
+            <%= f.text_field :company, placeholder: "Company Name", class: "person-input"  %>
+        </div>
+
+        <div class="field">
+            <%= f.label :position, class: "person-label"%>
+            <%= f.text_field :position, placeholder: "Position", class: "person-input"  %>
+        </div>
+
+        <div class="field">
+            <%= f.label "Year of Employment", class: "person-label"%>
+            <%= f.text_field :year_employed, placeholder: "", class: "person-input"  %>
+        </div>
+
+        <div class="field">
+            <%= f.label :task, class: "person-label"%>
+            <%= f.text_field :task, placeholder: "Description", class: "person-input"  %>
+        </div>
+    </fieldset>
+</div>

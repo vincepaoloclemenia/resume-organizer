@@ -1,0 +1,18 @@
+<div class="panel-body">    
+    <fieldset>
+
+        <%= f.hidden_field :_destroy %>
+        <%= link_to "remove", '#', class: "remove_fields" %>
+
+        <div class="field">
+            <%= f.label :competency, class: "person-label"%>
+            <%= f.text_field :competency, placeholder: "Category", class: "person-input"  %>
+        </div>
+
+        <div class="field">
+            <%= f.label "Specific Field", class: "person-label"%>
+            <%= f.text_field :skill_name, placeholder: "Skill Set", class: "person-input"  %>
+        </div>
+        
+    </fieldset>
+</div>

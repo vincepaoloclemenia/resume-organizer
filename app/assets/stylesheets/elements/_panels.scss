@@ -4,4 +4,9 @@
         background-color: $secondary-color;
         color: $main-color;
     }
+    .panel-body{
+        border: 1px solid darken($secondary-color, 15%);
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
 }

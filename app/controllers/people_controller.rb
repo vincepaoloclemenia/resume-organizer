@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
         respond_to do |f|
             if @person.save
                 f.html{
-                    redirect_to person_educations_path(@person),
+                    redirect_to person_path(@person),
                     notice: "Resume Saved"
                 }
             else
@@ -70,11 +70,16 @@ class PeopleController < ApplicationController
                 :email,
                 :mobile_number,
                 :landline_number,
-                :avatar
+                :avatar,
+                objectives_attributes: [:description, :id, :_destroy],
+                skills_attributes: [:competency, :skill_name, :id, :_destroy],
+                references_attributes: [:company, :name, :profession, :contact, :id, :_destroy],
+                educations_attributes: [:education_level, :school_name, :year_attended, :id, :_destroy],
+                experiences_attributes: [:company, :task, :position, :year_employed, :id, :_destroy]
             )
         end
 
         def find_person
-            @person = Person.find(params[:id])
+            @person = Person.find_by(id: params[:id])
         end
 end

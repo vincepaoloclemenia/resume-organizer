@@ -92,6 +92,48 @@
                 <%= f.label :mother_name, class: "person-label"%>
                 <%= f.text_field :mother_name, placeholder: "Mother's Name", class: "person-input" %>
             </div>
+            <br/>
+
+            <div class="panel-heading"><center><h5>Educational Attainment</h5></center></div>
+            <%= f.fields_for :educations do |builder| %>
+                <%= render 'education_fields', f: builder %>
+            <% end %>
+            <br/>
+            <center><%= link_to_add_fields "Add Education", f, :educations %></center>
+            <br/>
+
+            <div class="panel-heading"><center><h5>Objective</h5></center></div>
+            <%= f.fields_for :objectives do |builder| %>
+                <%= render 'objective_fields', f: builder %>
+            <% end %>
+            <br/>
+            <center><%= link_to_add_fields "Add Objective", f, :objectives %></center>
+            <br/>
+
+            <div class="panel-heading"><center><h5>Skills</h5></center></div>
+            <%= f.fields_for :skills do |builder| %>
+                <%= render 'skill_fields', f: builder %>
+            <% end %>
+            <br/>
+            <center><%= link_to_add_fields "Add Skill set", f, :skills %></center>
+            <br/>
+
+            <div class="panel-heading"><center><h5>Work Experience</h5></center></div>
+            <%= f.fields_for :experiences do |builder| %>
+                <%= render 'experience_fields', f: builder %>
+            <% end %>
+            <br/>
+            <center><%= link_to_add_fields "Add Work Experience", f, :experiences %></center>
+            <br/>
+
+            <div class="panel-heading"><center><h5>Character References</h5></center></div>
+            <%= f.fields_for :references do |builder| %>
+                <%= render 'reference_fields', f: builder %>
+            <% end %>
+            <br/>
+            <center><%= link_to_add_fields "Add Reference", f, :references %></center>
+            <br/>
+                
             <div class="field">
                 <%= f.submit 'Save', class: "btn register" %>
             </div>

@@ -1,11 +1,11 @@
 <% content_for :title, "#{@person.last_name}, #{@person.first_name}" %>
 <div id="page-wrap">
 
-    <%= avatar_for(@person, size: 150) %>
+    <div class="resume-avatar"><%= avatar_for(@person, size: 150) %></div>
 
     <div id="contact-info" class="vcard">
     
-        <h1 class="fn"><%= @person.last_name%>, <%=@person.first_name%></h1>
+        <h1 class="fn"><%= @person.last_name%>, <%=@person.first_name%><span class="edit-person">( <%= link_to 'Edit', edit_person_path(@person) %> )</span></h1>
     
         <p>
             Cell: <span class="tel"><%= @person.mobile_number %></span><br />
@@ -32,15 +32,15 @@
         <dt>Personal Information</dt>
             <dd>
                 <div class="resume">
-                    <p><label class="person-label">Address:</label><span class="resume-detail"><%= @person.main_address %></span></p>
-                    <p><label class="person-label">Birthday:</label><span class="resume-detail"><%= @person.birthday.strftime("%B %d, %Y") %></span></p>
-                    <p><label class="person-label">Age:</label><span class="resume-detail"><%= @person.age %></span></p>
-                    <p><label class="person-label">Gender:</label><span class="resume-detail"><%= @person.gender %></span></p>
-                    <p><label class="person-label">Status:</label><span class="resume-detail"><%= @person.status %></span></p>
-                    <p><label class="person-label">Height:</label><span class="resume-detail"><%= @person.height %></span></p>
-                    <p><label class="person-label">Weight:</label><span class="resume-detail"><%= @person.weight %></span></p>
-                    <p><label class="person-label">Mother's Name:</label><span class="resume-detail"><%= @person.mother_name %></span></p>
-                    <p><label class="person-label">Father's Name:</label><span class="resume-detail"><%= @person.father_name %></span></p>               
+                    <p><label class="resume-label">Address:</label><span class="resume-detail"><%= @person.main_address %></span></p>
+                    <p><label class="resume-label">Birthday:</label><span class="resume-detail"><%= @person.birthday.strftime("%B %d, %Y") %></span></p>
+                    <p><label class="resume-label">Age:</label><span class="resume-detail"><%= @person.age %></span></p>
+                    <p><label class="resume-label">Gender:</label><span class="resume-detail"><%= @person.gender %></span></p>
+                    <p><label class="resume-label">Status:</label><span class="resume-detail"><%= @person.status %></span></p>
+                    <p><label class="resume-label">Height:</label><span class="resume-detail"><%= @person.height %></span></p>
+                    <p><label class="resume-label">Weight:</label><span class="resume-detail"><%= @person.weight %></span></p>
+                    <p><label class="resume-label">Mother's Name:</label><span class="resume-detail"><%= @person.mother_name %></span></p>
+                    <p><label class="resume-label">Father's Name:</label><span class="resume-detail"><%= @person.father_name %></span></p>               
                 </div>
             </dd>
         
@@ -51,22 +51,22 @@
             <dd>
                 <h2><strong>Elementary</strong></h2>
                 <% @person.educations.select { |elem| elem.education_level == "Elementary"}.map do |educ| %>                                            
-                    <p>School Name: <%= educ.school_name %><br />
-                    Year Attended: <%= educ.year_attended %></p>                    
+                    <p class="resume-education">School Name: <span class="resume-detail"><%= educ.school_name %></span></p>
+                    <p class="resume-education">Year Attended: <span class="resume-detail"><%= educ.year_attended %></span></p>                     
                 <% end %>
             </dd>
             <dd>
                 <h2><strong>Secondary</strong></h2>
                 <% @person.educations.select { |elem| elem.education_level == "Secondary"}.map do |educ| %>                                            
-                    <p>School Name: <%= educ.school_name %><br />
-                    Year Attended: <%= educ.year_attended %></p>                    
+                    <p class="resume-education">School Name: <span class="resume-detail"><%= educ.school_name %></span></p>
+                    <p class="resume-education">Year Attended: <span class="resume-detail"><%= educ.year_attended %></span></p>                    
                 <% end %>
             </dd>
             <dd>
                 <h2><strong>Tertiary</strong></h2>
                 <% @person.educations.select { |elem| elem.education_level == "Tertiary"}.map do |educ| %>                                            
-                    <p>School Name: <%= educ.school_name %><br />
-                    Year Attended: <%= educ.year_attended %></p>                    
+                    <p class="resume-education">School Name: <span class="resume-detail"><%= educ.school_name %></span></p>
+                    <p class="resume-education">Year Attended: <span class="resume-detail"><%= educ.year_attended %></span></p>                   
                 <% end %>
             </dd>
         <% else %>
@@ -118,9 +118,9 @@
             <dd>
                 <% @person.references.map do |ref| %>
                         <h2><strong><%= ref.name %></strong></h2>
-                        <p>Company: <%= ref.company %></p>                    
-                        <p>Profession: <%= ref.profession %></p>
-                        <p>Contract Detail: <%= ref.contact %></p>
+                        <p class="resume-education">Company: <span class="resume-detail"><%= ref.company %></span></p>                    
+                        <p class="resume-education">Profession: <span class="resume-detail"><%= ref.profession %></span></p>
+                        <p class="resume-education">Contract Detail: <span class="resume-detail"><%= ref.contact %></span></p>
                             
                 <% end %>
             </dd>

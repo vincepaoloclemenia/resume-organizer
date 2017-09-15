@@ -1,13 +1,22 @@
 
 #page-wrap {
-    padding-top: 40px;
-    width: 800px; 
+    padding-top: 50px;
+    width: 80%;
+    background-color: $text-color; 
     margin: 40px auto 60px;
     font: 16px Helvetica, Sans-Serif;
     line-height: 24px;
     .clear { clear: both; }         
     .avatar-image { float: right; 
         margin: -30px 0 0 0; 
+    }
+
+    dl{ margin-top: 30px;}
+
+    .edit-person{
+        margin-left: 3em;
+        font-weight: 300;
+        font-size: 20px;
     }
 
     h1 { 
@@ -31,8 +40,9 @@
         font-style: italic; 
         font-family: Georgia, Serif; 
         font-size: 16px; 
-        color: #999; 
-        font-weight: normal; 
+        color: $current_tab; 
+        font-weight: normal;
+        margin-right: 5em 
     }    
 
     a { 
@@ -48,9 +58,18 @@
 
     ul { margin: 0 0 32px 17px; }
 
+    .vcard { 
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+
+    .resume-avatar { margin-right: 3em }
+
     #objective { 
+        padding-top: 25px;
         width: 500px; 
-        float: left; 
+        float: left;
+        margin-left: 3em; 
         
         p {
             font-family: Georgia, Serif; 
@@ -67,30 +86,37 @@
         padding: 0 26px 0 0; 
         width: 150px; float: left; 
         height: 100px; 
-        border-right: 1px solid #999;  
+        border-right: 1px solid #999;
+        margin-left: 2em;
     }
 
-    dd { 
+    dd {
+        margin-right: 3em; 
         width: 600px; 
         float: right;
         
         p { 
-            margin: 0 0 16px 0; 
-        } 
+            margin: 0 0 16px 0;
+        }
+        
+        .resume-education{
+            margin-left: 8em;
+        }
 
         li{
             list-style-position: inside;
         }
 
         span.resume-detail{
-            float: right;
-            display: block;
-            position: absolute;
-            margin-left: 10em;
-        }
-        label.person-label{
+            margin-left: 8em;
             
         }
+        label.resume-label{
+            float: left;
+            clear: both;
+            position: absolute;
+        }
+
     }
 
     dd.clear { 

@@ -1,5 +1,10 @@
 .resume-form {
 	@include background-tile;
 	-webkit-animation: fadeEffect 1.5s;
-    animation: fadeEffect 1.5s; /* Fading effect takes 1 second */
+	animation: fadeEffect 1.5s; /* Fading effect takes 1 second */
+
+	fieldset {
+		padding-bottom: 20px;
+		padding-top: 10px;
+	}
 }
