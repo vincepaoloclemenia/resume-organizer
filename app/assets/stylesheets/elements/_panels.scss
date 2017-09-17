@@ -5,6 +5,8 @@
         color: $main-color;
     }
     .panel-body{
+        -webkit-animation: fadeEffect 1.5s;
+        animation: fadeEffect 1s; /* Fading effect takes 1 second */
         border: 1px solid darken($secondary-color, 15%);
         margin-bottom: 25px;
         margin-top: 25px;

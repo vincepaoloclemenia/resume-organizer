@@ -30,10 +30,12 @@ class Person < ApplicationRecord
     accepts_nested_attributes_for :objectives, :educations, :skills, :references, :experiences, allow_destroy: true
     default_scope { order(created_at: :desc) }
 
+    scope :recent, -> { order(created_at: :desc) }
+
     Status = ["Single","Married"]
     Gender = ["Male", "Female"]
     
-    def completed_already?
+    def resume_status
         if educations.exists? && objectives.exists? && references.exists? && skills.exists?
             return "Complete Information"
         else
@@ -67,6 +69,14 @@ class Person < ApplicationRecord
         unless educations.any? 
             return "No educational record yet"
         end
+    end
+
+    def education_status
+        if educations.pluck(:education_level).include?("Tertiary")
+            return "College Graduate"
+        else
+            return "Undergraduate"
+        end 
     end
 
 

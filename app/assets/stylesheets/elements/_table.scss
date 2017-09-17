@@ -1,0 +1,34 @@
+table {
+    border-collapse: collapse;
+    max-height: 400px;
+    overflow: auto;
+    th { 
+        background: $secondary-color; 
+        color: white; 
+        font-weight: bold; 
+    }
+    a {
+        cursor: pointer;
+        &:hover{
+            text-decoration: none;
+            color: $main-color;
+        }
+    }
+    tr.resume-row{
+        &:hover{
+        background-color: $current_tab;
+        color: $main-color;
+        }
+    }
+}
+ul li{
+    list-style: none;
+    a.see-more-table{
+        cursor: pointer;		
+        margin-left: 45%;
+        font-weight: 900;
+        color: $main-color;
+        text-decoration: none;
+    }
+
+} 

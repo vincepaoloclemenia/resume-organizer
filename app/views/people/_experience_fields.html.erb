@@ -1,5 +1,5 @@
-<div class="panel-body">   
-    <fieldset>
+<fieldset>
+    <div class="panel-body"> 
         <%= f.hidden_field :_destroy %>
         <%= link_to "remove", '#', class: "remove_fields" %>
         
@@ -22,5 +22,6 @@
             <%= f.label :task, class: "person-label"%>
             <%= f.text_field :task, placeholder: "Description", class: "person-input"  %>
         </div>
-    </fieldset>
-</div>
+    </div>
+</fieldset>
+

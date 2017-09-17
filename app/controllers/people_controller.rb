@@ -81,5 +81,9 @@ class PeopleController < ApplicationController
 
         def find_person
             @person = Person.find_by(id: params[:id])
+            if @person.nil?
+                redirect_to root_path 
+                flash[:alert] = "No Resume found to continue"
+            end
         end
 end

@@ -3,27 +3,7 @@
     <div class="resume-form">
         <div class="panel panel-default">
             <div class="panel-heading"><center><h4>All Resume (<%= @people.size %>)</h4></center></div>
-
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Education Attainment</th>
-                        </tr>
-                    </thead>
-                    <% @people.map do |person| %>
-                        <tbody>
-                            <tr>
-                                <td><%= link_to "#{person.last_name}, #{person.first_name} #{person.middle_name}", person_path(person) %></td>
-                                <td><%= person.completed_already? %></td>
-                                <td><%= person.educations.undergraduate? %></td>
-                                <td><%= link_to '', edit_person_path(person), class: "glyphicon glyphicon-edit" %> </td>
-                                <td><%= link_to '', person_path(person), method: :delete, data:{ confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash red" %></td>
-                            </t>
-                        </tbody>
-                    <% end %>
-                </table>
+                <%= react_component('ResumeTable') %>
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@
 
             <div class="field">
                 <%= f.label :education_level, class: "person-label"%>
-                <%= f.select :education_level, options_for_select(Education::Levels), include_blank: "Education Level" %>
+                <%= f.select :education_level, options_for_select([ "Elementary", "Secondary", "Tertiary", "Other" ]), include_blank: "Education Level" %>
             </div>
 
             <div class="field">

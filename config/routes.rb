@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resources :experiences
   end
   
+  namespace :api do
+    resources :people, only: [:index]
+  end
 end

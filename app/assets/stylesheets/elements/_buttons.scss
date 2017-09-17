@@ -1,9 +1,9 @@
 .register{
 	color: darken($secondary-color, 5%);
-	background-color: $text-color;
+	background-color: transparent;
+	font-weight: 900;
 	border: none;
 	width: 100%;
-	border-radius: 5px;
 	font-family: 'Trebuchet MS', serif;
 	letter-spacing: .50em;
 	&:hover{
